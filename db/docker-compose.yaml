@@ -1,0 +1,18 @@
+version: "3.1"
+services:
+  db:
+    image: mariadb:11.2
+    environment:
+      MARIADB_USER: root
+      MARIADB_ROOT_PASSWORD: 123456
+    volumes:
+    - ./db-data:/var/lib/mysql
+    - ./db-init:/docker-entrypoint-initdb.d
+    ports:
+      - "${PORT_DB:-3306}:3306"
+    restart: unless-stopped
+  adminer:
+    image: adminer:4.8.1
+    ports:
+      - "${PORT_ADMINER:-8080}:8080"
+    restart: unless-stopped
