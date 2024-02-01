@@ -19,7 +19,7 @@ graph LR
     direction LR
     Router---Component---HTTP
   end
-  subgraph be["Backend (Node.js, Express)"]
+  subgraph be["Backend (Node.js Express, Sequelize)"]
     style be rx:10,ry:10
     RestAPI
     ORM
@@ -37,6 +37,12 @@ graph LR
 cd ./src/backend/
 node server.js
 ```
+
+Check the running server with `(Invoke-WebRequest http://localhost:8082/).RawContent`.
+
+Create an database entry with `(Invoke-WebRequest http://localhost:8082/api/tutorials/ -Method POST -Body '{"title": "Title No. 1", "description": "Lorem ipsum dolor..."}' -ContentType "application/json").RawContent`
+
+Get all items from database with `(Invoke-WebRequest http://localhost:8082/api/tutorials/).RawContent`
 
 ### Frontend with Vue.js
 
