@@ -26,7 +26,7 @@ graph LR
   end
   subgraph db["Database (MariaDB)"]
     style db rx:10,ry:10
-    MySQL
+    MariaDB
   end
   fe<-->be<-->db
 ```
