@@ -129,5 +129,5 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
-# JavaScript files
-*.js
+# JavaScript files backend folder
+src/backend/**/*.js
