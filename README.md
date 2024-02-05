@@ -4,6 +4,8 @@ A database web viewer. Frontend implemented with Vue.js and backend implemented 
 
 ## Local Development
 
+The development environment is Windows 10 and Powershell 5.1.
+
 ### Requirements
 
 - [Docker Engine / Docker CE](https://docs.docker.com/engine/install/) or [Docker Desktop](https://docs.docker.com/desktop/install/mac-install/)
@@ -35,19 +37,22 @@ graph LR
 
 ```ps
 cd ./src/backend/
-node server.js
+npm install
+npm run build
+npm run serve
 ```
 
 Check the running server with `(Invoke-WebRequest http://localhost:8082/).RawContent`.
 
-Create an database entry with `(Invoke-WebRequest http://localhost:8082/api/tutorials/ -Method POST -Body '{"title": "Title No. 1", "description": "Lorem ipsum dolor..."}' -ContentType "application/json").RawContent`
+Create an database entry with `(Invoke-WebRequest http://localhost:8082/api/tutorials/ -Method POST -Body '{"title": "Title No. 1", "description": "Lorem ipsum dolor..."}' -ContentType "application/json").RawContent`.
 
-Get all items from database with `(Invoke-WebRequest http://localhost:8082/api/tutorials/).RawContent`
+Get all items from database with `(Invoke-WebRequest http://localhost:8082/api/tutorials/).RawContent`.
 
 ### Frontend with Vue.js
 
 ```ps
 cd ./src/frontend/
+npm install
 npm run serve
 ```
 
@@ -55,5 +60,5 @@ Access the frontend with `http://localhost:8081/`.
 
 ## Debugging
 
-- Check if Docker running with `docker info` and `docker ps`
+- Check if Docker running with `docker info` and `docker ps`.
 - Check if database running with `http://localhost:8080/`. Credentials are defined in ./db/docker-compose.yaml and default to username `root` and password `123456`.
