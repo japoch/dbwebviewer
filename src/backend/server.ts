@@ -22,7 +22,7 @@ db.sequelize.sync()
   .then(() => {
     console.log("Synced db.");
   })
-  .catch((err) => {
+  .catch((err: { message: string; }) => {
     console.log("Failed to sync db: " + err.message);
   });
 
@@ -31,7 +31,7 @@ db.sequelize.sync()
 //});
 
 // simple route
-app.get("/", (req, res) => {
+app.get("/", (_req: any, res: any) => {
   res.json({ message: "Hi!" });
 });
 
